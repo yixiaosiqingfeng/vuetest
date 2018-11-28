@@ -1,10 +1,10 @@
 <template>
     <div id="b_main_2">
 		<div class="falllove">
-			<router-link tag="div" class="love_1" to="" >
+			<div class="love_1">
 				<ul>
 					<li>
-						<div v-for="(item,index) in love_1" :key="index">
+						<div v-for="(item,index) in love_1" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -15,7 +15,7 @@
 
 					</li>
 					<li>
-						<div v-for="(item,index) in love_2" :key="index">
+						<div v-for="(item,index) in love_2" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -24,14 +24,14 @@
 						</div>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="start">
 			<h2>强势首发</h2>
-			<router-link tag="div" class="start_1" to="" >
+			<div class="start_1">
 				<ul>
 					<li>
-						<div  v-for="(item,index) in start_1" :key="index">
+						<div  v-for="(item,index) in start_1" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -42,7 +42,7 @@
 
 					</li>
 					<li>
-						<div v-for="(item,index) in start_2" :key="index">
+						<div v-for="(item,index) in start_2" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -51,14 +51,14 @@
 						</div>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="easily">
 			<h2>轻松一刻</h2>
-			<router-link tag="div" class="easily_1" to="" >
+			<div class="easily_1">
 				<ul>
 					<li>
-						<div v-for="(item,index) in easily_1" :key="index">
+						<div v-for="(item,index) in easily_1" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -69,7 +69,7 @@
 
 					</li>
 					<li>
-						<div v-for="(item,index) in easily_2" :key="index">
+						<div v-for="(item,index) in easily_2" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url"/>
 							</p>
@@ -79,14 +79,14 @@
 						
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="highmarks">
 			<h2>高分精选</h2>
-			<router-link tag="div" class="high" to="" >
+			<div class="high">
 				<ul>
 					<li>
-						<div v-for="(item,index) in highmarks_1" :key="index">
+						<div v-for="(item,index) in highmarks_1" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -97,7 +97,7 @@
 
 					</li>
 					<li>
-						<div v-for="(item,index) in highmarks_2" :key="index">
+						<div v-for="(item,index) in highmarks_2" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -106,36 +106,36 @@
 						</div>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="finish">
 			<h2>完结漫画，一口气看完的快感！</h2>
-			<router-link tag="div" class="finish_1" to="">
+			<div class="finish_1">
 				<ul>
-					<li v-for="(item,index) in finish" :key="index">
+					<li v-for="(item,index) in finish" :key="index" @click="goinform(item)">
 						<img :src="item.pic_url"/>
 						<p>{{item.title}}</p>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="shortstory">
 			<h2>短片大合集，五分钟的漫画世界</h2>
-			<router-link tag="div" class="short_1" to="">
+			<div class="short_1">
 				<ul>
-					<li v-for="(item,index) in shortstory" :key="index">
+					<li v-for="(item,index) in shortstory" :key="index" @click="goinform(item)" >
 						<img :src="item.pic_url"/>
 						<p>{{item.title}}</p>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="dena">
 			<h2>DENA漫画</h2>
-			<router-link tag="div" class="dena_1" to="" >
+			<div class="dena_1">
 				<ul>
 					<li>
-						<div v-for="(item,index) in dena_1" :key="index">
+						<div v-for="(item,index) in dena_1" :key="index" @click="goinform(item)">
 							<p>
 								<img :src="item.pic_url" />
 							</p>
@@ -155,7 +155,7 @@
 						</div>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="foot">	
 			<p>下载客户端</p>
@@ -212,12 +212,12 @@
            goinform(item){
            	    let id=item.id;
 //				console.log(id);
-                console.log(21);
-//				console.log(this.strongly_small)
                 this.item=JSON.stringify(item);
                 window.localStorage.setItem('data',this.item);//登录成功后，存储一个login的状态
-                console.log( window.localStorage);
-                this.$router.push({name:'Inform',params:{id:id}})
+                this.$router.push({name:'InfoHome',params:{id:id}})
+//              this.strongly_big_1
+                this.data=window.localStorage.data;
+//              console.log(this.data);
            }
            
 		},

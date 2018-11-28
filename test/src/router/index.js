@@ -13,6 +13,7 @@ import My from '../components/pages/My/My'
 import Reg from '../components/pages/My/Reg'
 import Login from '../components/pages/My/Login'
 import Inform from '../components/pages/Inform/Inform'
+import InfoHome from '../components/pages/Inform/InfoHome'
 import Share from '../components/pages/Inform/Share'
 import Collection from '../components/pages/Inform/Collection'
 import Submit from '../components/pages/Inform/Submit'
@@ -95,6 +96,12 @@ export default new Router({
       name: 'Setting',//路由的名字
       component: Setting,// 该路由所引用的组件
     },
+    {
+      path: '/InfoHome/:id',//匹配的hash地址
+      name: 'InfoHome',//路由的名字
+      component: InfoHome,// 该路由所引用的组件
+    },
+    
     
     
   ]

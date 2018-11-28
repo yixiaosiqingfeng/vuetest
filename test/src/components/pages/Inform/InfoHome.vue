@@ -1,5 +1,14 @@
 <template>
-	<div id="inform_info">
+   <div id="InfoHome">
+   	    <Header></Header>
+   	    <div id="info_nav">
+			<div class="nav" >
+				    <a href="#/Home/OrderBy"><i class="fa fa-long-arrow-left"></i></a>
+					<p>{{item.id}}</p>
+					<span class="fa fa-angle-double-down"></span>
+			</div>
+	    </div>
+	    <div id="inform_info">
 
 		<div class="type" >
 			
@@ -8,24 +17,24 @@
 					<ul>
 						<li>
 							<img src="http://m.buka.cn/static/img/star_2.png"/>
-							<p>{{item.rate}}</p>
+							<p>{{item.pic_height}}</p>
 						</li>
 						<li>
-							<img :src="item.logo"/>
+							<img :src="item.pic_url"/>
 						</li>
 						<li>
 							<img src="http://m.buka.cn/static/img/fire.png"/>
-							<p>{{item.lastchap}}</p>
+							<p>{{item.pic_width}}</p>
 						</li>
 					</ul>
 					
 				</div>
 				<div class="data-center">
-					<p class="center-one">{{item.name}}</p>
-					<p class="center-two">{{item.author}}</p>
+					<p class="center-one">{{item.title}}</p>
+					<p class="center-two">{{item.subtitle}}</p>
 					<p class="center-three">客户端观看</p>
 					<p class="center-four">
-					[每周二、四、六、日更新]{{item.name}}
+					[每周二、四、六、日更新]{{item.title}}
 					
 					</p>
 					<!--<i class="fa fa-angle-down" aria-hidden="true"></i>-->
@@ -57,19 +66,19 @@
 		 <router-view></router-view>
 		
 	</div>
+   </div>
 </template>
 
 <script>
-	import Vue from 'vue'
-	import Axios from 'axios'
-//	import {Toast, InfiniteScroll} from 'mint-ui';
-//	Vue.use(InfiniteScroll);
-	
+import Header from '../../commons/Header';
+
+
 	export default{
-		name:'inform_info',
-		components:{},//注册
+		name:'InfoHome',
+		components:{Header},
 		data(){
 			return{
+				name:'我是InfoHome页面',
 				sharelist:[{title:'分享',iconClass:'fa fa-share-square-o',path:'/Share'},
 							{title:'投稿',iconClass:'fa fa-paper-plane-o',path:'/Submit'},
 							{title:'评论',iconClass:'fa fa-commenting',path:'/Discuss'},
@@ -90,35 +99,78 @@
 			}
 		},
 		methods:{
-			getList(item){
-				this.sel=item;
+			getDatas(){
+				this.$axios.post("str/ranking/get_data",{
+					
+				})
+				.then((res)=>{
+//					console.log(res)
+				})
+				.catch((err)=>{
+					console.log(err)
+				})
 			},
 			gopage(path){//编程式导航，router.push()
 				this.item=JSON.parse(window.localStorage.getItem('data'))
-				let id=this.item.mid;
+				let id=this.item.id;
 			    this.$router.push({path:`${path}/${id}`,params:{id:id}})//跳转成这种形式的路由localhost:8080/#/Discuss/217438
 			},
 			getinfo(){
 				this.item=JSON.parse(window.localStorage.getItem('data'));//存储到localStorage，不需要在存到数组了，可以直接获取				
 //			    this.newdata.push(this.item);
+console.log(this.item)
 //			    this.newdata=this.newdata[0];
 			}
 		},
 		created(){
-			//console.log(this.$route.params);//输出传回来的id
-			this.getinfo();
+//			console.log(this.$route.params)
+            this.getinfo()
 		}
-		
 	}
 </script>
 
-<style lang="less" scoped>/*scvoped,仅限于这个目录使用*/
-@import '../../../styles/main.less';/*引入*/
+<style lang="less" scoped>	
+@import url("../../../styles/main.less");	
 .orange{
 	background:#fe960e ;
 	color: #fff;
 }
-#inform_info{
+    #InfoHome{
+    	.width(375);
+    	#info_nav{
+			.width(375);
+		    .height(37);
+		    .padding(0,10,0,10);
+		    position:fixed;
+		    .top(40);
+		    background:#fff;
+		    z-index:99;
+			.nav{
+					.height(37);
+					display:flex;
+					justify-content: space-between;
+					.line-height(37);
+					.font-size(16);
+					text-align:center;
+					border-bottom:1px solid #ccc;
+					a{
+						p{
+							
+						}
+					}
+					
+					i{
+						.font-size(24);
+						color:#ccc;
+					}
+					span{
+						.line-height(39);
+						.font-size(20);
+						color:#ccc;
+					}
+			}
+		}
+		#inform_info{
 	.width(375);
 	.padding(10,10,0,10);
 	.margin(20,0,0,0);
@@ -302,4 +354,5 @@
 	}
 	
 }	
+    }
 </style>

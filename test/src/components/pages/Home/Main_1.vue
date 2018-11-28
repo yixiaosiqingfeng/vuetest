@@ -3,17 +3,15 @@
 	<div id="b_main_1">
 		<div class="strongly">
 			<h2>强力推荐</h2>
-			<router-link tag="div" class="main_1_1" to="">
-				<!--<ul v-for="(item,index) in strongly_big_1" :key="index" @click="go">-->
-					<router-link tag="ul" v-for="(item,index) in strongly_big_1" :key="index" :to="{path:'/Inform/'+item.id}">
+			<div class="main_1_1">
+				<ul v-for="(item,index) in strongly_big_1" :key="index" @click="goinform(item)">
 					<li>
 						<img :src="item.pic_url"/>
 					</li>
 					<li>{{item.title}}</li>
-				<!--</ul>-->
-			</router-link>
-			</router-link>
-			<router-link tag="div" class="main_1_2" to="" >
+				</ul>
+			</div>
+			<div class="main_1_2">
 				<ul>
 					<li>
 						<div v-for="(item,index) in strongly_small" :key="index" @click="goinform(item)">
@@ -30,38 +28,38 @@
 
 					</li>
 				</ul>
-			</router-link>
-			<router-link tag="div" class="main_1_3" to="" v-for="(item,index) in strongly_big_2" :key="index">
+			</div>
+			<<div class="main_1_3" v-for="(item,index) in strongly_big_2" :key="index" @click="goinform(item)">
 				<p>
 					<img :src="item.pic_url" />
 				</p>
 				<p>{{item.title}}</p>
 				<p>{{item.subtitle}}</p>
-			</router-link>
+			</div>
 		</div>
 		<div class="lily">
-			<router-link tag="div" class="lily_1" to="">
+			<div class="lily_1">
 				<ul>
 					<li  v-for="(item,index) in lily_small" :key="index">
 						<img :src="item.pic_url" />
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="newwork">
-			<router-link tag="div" class="new_work" to="">
+			<div class="new_work">
 				<h2>新作的首展秀</h2>
-				<router-link tag="div" class="new_work_1" to="" v-for="(item,index) in newwork_big_1" :key="index">
+				<div class="new_work_1" v-for="(item,index) in newwork_big_1" :key="index" @click="goinform(item)">
 					<p>
 						<img :src="item.pic_url" />
 					</p>
 					<p>{{item.title}}</p>
 					<p>{{item.subtitle}}</p>
-				</router-link>
-				<router-link tag="div" class="new_work_2" to="">
+				</div>
+				<div class="new_work_2">
 					<ul>
 						<li>
-							<div v-for="(item,index) in newwork_small" :key="index">
+							<div v-for="(item,index) in newwork_small" :key="index" @click="goinform(item)">
 								<p>
 									<img :src="item.pic_url" />
 								</p>
@@ -74,30 +72,30 @@
 							</div>
 						</li>	
 					</ul>
-				</router-link>
-				<router-link tag="div" class="new_work_3" to="" v-for="(item,index) in newwork_big_2" :key="index">
+				</div>
+				<div class="new_work_3" v-for="(item,index) in newwork_big_2" :key="index" @click="goinform(item)">
 					<p>
 						<img :src="item.pic_url" />
 					</p>
 					<p>{{item.title}}</p>
 					<p>{{item.subtitle}}</p>
-				</router-link>
+				</div>
 
-			</router-link>
+			</div>
 		</div>
 		<div class="vipbook">
-			<router-link tag="div" class="vip" to="">
+			<div class="vip">
 				<h2>VIP图书馆</h2>
-				<router-link tag="div" class="vip_1" to="" v-for="(item,index) in vip_big" :key="index">
+				<div class="vip_1" v-for="(item,index) in vip_big" :key="index" @click="goinform(item)">
 					<p>
 						<img :src="item.pic_url" />
 					</p>
 					<p>{{item.title}}</p>
-				</router-link>
-				<router-link tag="div" class="vip_2" to="">
+				</div>
+				<div class="vip_2">
 					<ul>
 						<li>
-							<div v-for="(item,index) in vip_small" :key="index">
+							<div v-for="(item,index) in vip_small" :key="index" @click="goinform(item)">
 								<p>
 									<img :src="item.pic_url" />
 								</p>
@@ -106,32 +104,32 @@
 							</div>
 						</li>
 					</ul>
-				</router-link>
-			</router-link>
+				</div>
+			</div>
 		</div>
 		<div class="willfree">
-			<router-link tag="div" class="free" to="">
+			<div class="free">
 				<ul>
-					<li v-for="(item,index) in free_small" :key="index">
+					<li v-for="(item,index) in free_small" :key="index" @click="goinform(item)">
 						<img :src="item.pic_url"/>
 						<p>{{item.title}}</p>
 					</li>
 				</ul>
-			</router-link>
+			</div>
 		</div>
 		<div class="hotblood">
-			<router-link tag="div" class="blood" to="">
-				<router-link tag="div" class="blood_1" to="" v-for="(item,index) in blood_big" :key="index">
+			<div class="blood">
+				<div class="blood_1" v-for="(item,index) in blood_big" :key="index" @click="goinform(item)">
 					<p>
 						<img :src="item.pic_url" />
 					</p>
 					<p>{{item.title}}</p>
 					<p>{{item.subtitle}}</p>
-				</router-link>
-				<router-link tag="div" class="blood_2" to="" >
+				</div>
+				<div class="blood_2">
 					<ul>
 						<li>
-							<div v-for="(item,index) in blood_small" :key="index">
+							<div v-for="(item,index) in blood_small" :key="index" @click="goinform(item)">
 								<p>
 									<img :src="item.pic_url" />
 								</p>
@@ -140,9 +138,9 @@
 							</div>
 						</li>
 				    </ul>
-				</router-link>
+				</div>
 				
-			</router-link>
+			</div>
 		</div>
 	</div>
 </template>
@@ -208,8 +206,10 @@
 //				console.log(id);
                 this.item=JSON.stringify(item);
                 window.localStorage.setItem('data',this.item);//登录成功后，存储一个login的状态
-                console.log( window.localStorage);
-                this.$router.push({name:'Inform',params:{id:id}})
+                this.$router.push({name:'InfoHome',params:{id:id}})
+//              this.strongly_big_1
+                this.data=window.localStorage.data;
+//              console.log(this.data);
            }
 		},
 		created(){
