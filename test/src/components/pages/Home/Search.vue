@@ -33,7 +33,7 @@
 		},
 		methods:{
 			goback(){
-				this.$router.push({path:'/'})
+				this.$router.history.go(-1);
 			},
 			getsearch(){
 				

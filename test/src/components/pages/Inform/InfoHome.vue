@@ -3,7 +3,7 @@
    	    <Header></Header>
    	    <div id="info_nav">
 			<div class="nav" >
-				    <a href="#/Home/OrderBy"><i class="fa fa-long-arrow-left"></i></a>
+				    <a @click="back"><i class="fa fa-long-arrow-left"></i></a>
 					<p>{{item.id}}</p>
 					<span class="fa fa-angle-double-down"></span>
 			</div>
@@ -99,6 +99,9 @@ import Header from '../../commons/Header';
 			}
 		},
 		methods:{
+			back(){
+				this.$router.history.go(-1);
+			},
 			getDatas(){
 				this.$axios.post("str/ranking/get_data",{
 					

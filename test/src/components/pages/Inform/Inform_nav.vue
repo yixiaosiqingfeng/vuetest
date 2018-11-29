@@ -1,7 +1,7 @@
 <template>
 	<div id="info_nav">
 		<div class="nav" >
-			    <a href="#/Home/OrderBy"><i class="fa fa-long-arrow-left"></i></a>
+			    <a @click="back"><i class="fa fa-long-arrow-left"></i></a>
 				<p>{{item.mid}}</p>
 				<span class="fa fa-angle-double-down"></span>
 		</div>
@@ -39,6 +39,9 @@
 //			    this.newdata.push(this.item);
 //			    this.newdata=this.newdata[0];
 //			    console.log(window.localStorage);
+			},
+			back(){
+				this.$router.history.go(-1);
 			}
 		},
 		created(){
